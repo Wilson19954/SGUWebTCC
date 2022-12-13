@@ -38,7 +38,7 @@ namespace StartGlowUp.Controllers
             if(tipoArquivo.Contains("png") || tipoArquivo.Contains("jpeg")) 
             {
                 MemoryStream s = new MemoryStream();
-                arquivo.CopyToAsync(s);
+                arquivo.CopyToAsync(s);,,
                 byte[] img = s.ToArray();
                 Usuario u = new Usuario(nome, endereco, email, desc, senha, tipo, doc, telefone, img);
                 u.CadastrarUsuario();
@@ -64,7 +64,7 @@ namespace StartGlowUp.Controllers
         [HttpPost]
         public ActionResult LogarUsuario(string doc,string senha) 
         {
-            MySqlConnection con = new MySqlConnection("Server=ESN509VMYSQL;Database=sgu;User id=aluno;Password=Senai1234");
+            MySqlConnection con = new MySqlConnection("Server=ESN509VMYS;Database=sgu;User id=aluno;Password=Senai1234");
             MySqlCommand comando = new MySqlCommand();
             string nome = "";
             string endereco = "";

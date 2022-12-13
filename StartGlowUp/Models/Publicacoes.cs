@@ -47,10 +47,8 @@ namespace StartGlowUp.Models
             } finally {
                 con.Close();
             }
-
-
-
         }
+
         public static string AdicionarLike(string cod_pub) {
             int like = 0;
             MySqlConnection con = new MySqlConnection(conexao);

@@ -27,17 +27,15 @@ namespace StartGlowUp.Controllers
             {
                 return RedirectToAction("ListarPublicacoes", "Publicacoes");
             }
-           
-
         }
         [HttpPost]
         public IActionResult CadastrarProjeto(string desc,string custo,string tag,string doc,string nome,string cod = "") 
-        
             {
             Random r = new Random();
             cod = r.Next().ToString();
             Projetos p = new Projetos(cod, desc, tag, nome, doc, null, custo, null);
             p.CadastrarProjeto();
+
             foreach (IFormFile arquivo in Request.Form.Files) 
             {
                 string tipoArquivo = arquivo.ContentType;
@@ -50,9 +48,7 @@ namespace StartGlowUp.Controllers
                     try 
                     {
                         int numero = 0;
-                        
                         numero = r.Next(1,1000);
-                        
                         MySqlConnection con = new MySqlConnection("Server=ESN509VMYSQL;Database=sgu;User id=aluno;Password=Senai1234");
                         MySqlCommand comando = new MySqlCommand();
                         con.Open();
@@ -63,9 +59,6 @@ namespace StartGlowUp.Controllers
                         comando.Parameters.AddWithValue("@cod_proj", cod);
                         comando.ExecuteNonQuery();
                         con.Close();
-
-
-                       
 
                     }catch 
                     {

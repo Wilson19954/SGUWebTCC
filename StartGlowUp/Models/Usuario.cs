@@ -10,7 +10,7 @@ namespace StartGlowUp.Models
     {
         static string conexao = "Server=ESN509VMYSQL;Database=sgu;User id=aluno;Password=Senai1234";
         private string nome, endereco, email, desc, senha, tipo, doc, telefone;
-        private byte[] img;
+        private byte[] img; 
 
         public Usuario(string nome, string endereco, string email, string desc, string senha, string tipo, string doc, string telefone, byte[] img) {
             this.nome = nome;
@@ -23,6 +23,8 @@ namespace StartGlowUp.Models
             this.telefone = telefone;
             this.img = img;
         }
+
+
         public string CadastrarUsuario() {
             MySqlConnection con = new MySqlConnection(conexao);
             MySqlCommand comando = new MySqlCommand();
@@ -48,7 +50,6 @@ namespace StartGlowUp.Models
             } finally {
                 con.Close();
             }
-
         }
         public bool LoginUsuario() {
             MySqlConnection con = new MySqlConnection(conexao);
